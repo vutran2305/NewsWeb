@@ -1,4 +1,6 @@
-var express = require ('express');
+var express = require ('express'); 
+const cors = require('cors');
+
 var app = express() ;
 const session = require('express-session');
 const mysql = require('mysql');
@@ -12,6 +14,7 @@ const connection =mysql.createConnection({
 
 //cấu hình body-parser
 var body_parser = require('body-parser');
+app.use(cors({ origin: true }));
 app.use(body_parser.urlencoded({extend:false}));
 app.use(body_parser.json());
 app.use(session({
