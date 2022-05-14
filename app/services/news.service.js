@@ -88,7 +88,7 @@ News.remove = function(News_Id ,result){
     })
 }
 News.getByTopicId = function(id, result){
-    db.query("SELECT * FROM newss where Topic_Id = ?",id,function(err,news){
+    db.query("SELECT * FROM news where Topic_Id = ?",id,function(err,news){
         if(err || news.length == 0){
             result(null);
         }
