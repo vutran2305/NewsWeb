@@ -8,10 +8,16 @@ const News = require('../services/news.service');
         
     }
     exports.get_list_news_by_create_at = function(req,res){
-        News.get_all_by_create(function(data){
-            res.send({result:data});
+        News.get_all_by_create(req.params.id,function(respnse){
+            res.send({result:respnse});
         });
         
+    }
+    // search
+    exports.search = function (req,res){
+        News.get_by_newsTitle(req.query.title,function(respnse){
+            res.send({result:respnse});
+        });
     }
     // get detail
     exports.get_detail = function(req,res){
@@ -44,3 +50,9 @@ const News = require('../services/news.service');
         res.send({result:respnse});
     });
     }
+    // get listNewByTopicId
+    exports.getListNewByTopic = function(req,res){
+        News.getByTopicId(req.params.id, function(respnse){
+            res.send({result:respnse});
+        });
+    } 
