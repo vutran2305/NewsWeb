@@ -39,7 +39,7 @@ require("./app/routes/register.router")(app);
 //         res.send('Đăng nhập thất bại');
 //     }
 // });
-app.post("/login", function (request, response) {
+app.post("/login", function (request, response,Username) {
   // Capture the input fields
   let username = request.body.username;
   let password = request.body.password;
@@ -58,10 +58,12 @@ app.post("/login", function (request, response) {
           request.session.loggedin = true;
           request.session.username = username;
           response.send("Đăng nhập thành công tài khoản"+' '+ username);
+          Username('Username:'+username);
+          return response;
         } else {
           response.send("Username or Password không đúng !");
         }
-        response.end();
+        response.end(); 
       }
     );
   } else {

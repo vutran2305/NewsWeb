@@ -14,7 +14,7 @@ var News = function(news){
     this.Created_At = news.Created_At;
 }
 News.get_all = function(result){
-    db.query("SELECT * FROM newss ",function(err,news){
+    db.query("SELECT * FROM newss inner join topic on newss.Topic_Id =topic.Topic_Id ",function(err,news){
        if(err){
            result("Error");
        }

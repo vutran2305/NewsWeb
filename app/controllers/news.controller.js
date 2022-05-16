@@ -1,12 +1,12 @@
 const News = require('../services/news.service');
-const PAGE_SIZE =8;
+const PAGE_SIZE =4;
 //get list
     exports.get_list_news = function(req,res){
-        var page =parseInt(req.query.page )|| 1;
-        var star = (page -1)* PAGE_SIZE;
-        var end = page * PAGE_SIZE;
+        // var page =parseInt(req.query.page )|| 1;
+        // var star = (page -1)* PAGE_SIZE;
+        // var end = page * PAGE_SIZE;
         News.get_all(function(data){
-            res.send({result:data.slice(star,end)});
+            res.send({result:data});
         });
         
     }
