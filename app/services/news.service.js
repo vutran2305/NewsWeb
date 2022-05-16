@@ -1,4 +1,6 @@
+const { all } = require('express/lib/application');
 const db = require('../common/connect');
+const PAGE_SIZE =2 ;
 var News = function(news){
     this.News_Id = news.News_Id;
     this.News_Tiltle = news.News_Tiltle;
@@ -11,13 +13,21 @@ var News = function(news){
     this.News_Index = news.News_Index;
     this.Created_At = news.Created_At;
 }
-News.get_all = function(result){
-    db.query("SELECT * FROM newss inner join topic on newss.Topic_Id = topic.Topic_Id ",function(err,news){
+News.get_all = function(req,result){
+    var page = req.query.page;
+        if (page) {
+            //get page
+            page = parseInt(page)
+            var slbq = (page -1) * PAGE_SIZE //6
+
+            AccountModel.find({}).skip(slbq).limit(PAGE_SIZE).then(data=>result.json(data))
+        }
+    db.query("SELECT * FROM newss ",function(err,news){
        if(err){
            result("Error");
        }
        else{
-    result(news);
+            result(news);
        }
    });
 
@@ -88,12 +98,12 @@ News.remove = function(News_Id ,result){
     })
 }
 News.getByTopicId = function(id, result){
-    db.query("SELECT * FROM news where Topic_Id = ?",id,function(err,news){
+    db.query("SELECT * FROM newss where Topic_Id = ?",id,function(err,news){
         if(err || news.length == 0){
             result(null);
         }
         else{
-            result(news[0]);
+            result(news);
         }
     });
    
