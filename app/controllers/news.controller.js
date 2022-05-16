@@ -1,15 +1,21 @@
 const News = require('../services/news.service');
-
+const PAGE_SIZE =8;
 //get list
     exports.get_list_news = function(req,res){
+        var page =parseInt(req.query.page )|| 1;
+        var star = (page -1)* PAGE_SIZE;
+        var end = page * PAGE_SIZE;
         News.get_all(function(data){
-            res.send({result:data});
+            res.send({result:data.slice(star,end)});
         });
         
     }
     exports.get_list_news_by_create_at = function(req,res){
+        var page =parseInt(req.query.page )|| 1;
+        var star = (page -1)* PAGE_SIZE;
+        var end = page * PAGE_SIZE;
         News.get_all_by_create(req.params.id,function(respnse){
-            res.send({result:respnse});
+            res.send({result:respnse.slice(star,end)});
         });
         
     }
@@ -52,7 +58,10 @@ const News = require('../services/news.service');
     }
     // get listNewByTopicId
     exports.getListNewByTopic = function(req,res){
+        var page =parseInt(req.query.page )|| 1;
+        var star = (page -1)* PAGE_SIZE;
+        var end = page * PAGE_SIZE;
         News.getByTopicId(req.params.id, function(respnse){
-            res.send({result:respnse});
+            res.send({result:respnse.slice(star,end)});
         });
     } 

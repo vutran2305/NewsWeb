@@ -1,6 +1,6 @@
 const { all } = require('express/lib/application');
 const db = require('../common/connect');
-const PAGE_SIZE =2 ;
+
 var News = function(news){
     this.News_Id = news.News_Id;
     this.News_Tiltle = news.News_Tiltle;
@@ -13,15 +13,7 @@ var News = function(news){
     this.News_Index = news.News_Index;
     this.Created_At = news.Created_At;
 }
-News.get_all = function(req,result){
-    var page = req.query.page;
-        if (page) {
-            //get page
-            page = parseInt(page)
-            var slbq = (page -1) * PAGE_SIZE //6
-
-            AccountModel.find({}).skip(slbq).limit(PAGE_SIZE).then(data=>result.json(data))
-        }
+News.get_all = function(result){
     db.query("SELECT * FROM newss ",function(err,news){
        if(err){
            result("Error");
@@ -32,7 +24,6 @@ News.get_all = function(req,result){
    });
 
 }
-
 News.get_all_by_create = function(id,result){
     db.query("SELECT * FROM news where Created_At =? ",id,function(err,news){
         if(err || news.length == 0){
