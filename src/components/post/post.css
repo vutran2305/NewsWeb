@@ -1,22 +1,51 @@
 .post {
-  width: 385px;
-  margin: 0px 25px 40px 25px;
+  width: 250px;
+  margin: 0px 15px 40px 15px;
   display: flex;
   flex-direction: column;
-}
-
-.postImg {
-  width: 385px;
-  height: 280px;
-  object-fit: cover;
+  height: 100%;
+  border: 1px solid #eaeaea;
   border-radius: 7px;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
+  min-height: 570px;
+}
+.post:hover{
+    -webkit-transition: all .3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.post:first-child{
+  margin: 0px 30px 0px 0px;
+}
+.img-hover-zoom {
+  width: 100%;
+  height: 280px; /* [1.1] Set it as per your need */
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
 }
 
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  width: 100%;
+  height: 100%;
+  transition: transform .5s ease;
+  cursor: pointer;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
+}
 .postInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10px;
 }
+
 
 .postCat {
   font-family: "Varela Round", Arial, Helvetica, sans-serif;
@@ -24,9 +53,10 @@
   font-size: 11px;
   color: #be9656;
   line-height: 19px;
-  margin-top: 15px;
-  margin-right: 10px;
   cursor: pointer;
+}
+.postCat a{
+  font-size: 15px;
 }
 
 .postTitle {
@@ -35,8 +65,11 @@
   font-weight: 900;
   margin-top: 15px;
   cursor: pointer;
+  padding: 0 10px;
 }
-
+.postTitle:hover{
+  color: #2f80ed;
+}
 .postDate {
   font-family: "Lora", serif;
   font-style: italic;
@@ -53,6 +86,7 @@
   line-height: 24px;
   color: #444444;
   margin-top: 15px;
+  padding: 0 10px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

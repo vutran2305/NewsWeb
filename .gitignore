@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+
+/ckeditor5
 # production
 /build
 

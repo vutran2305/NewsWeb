@@ -1,0 +1,21 @@
+.card-container{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #eaeaea;
+    border-radius: 7px;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
+    height: 150px;
+    margin: 35px 0;
+    min-width: 1400px;
+}
+.card-container:first-child{
+    margin-top: 0px;
+}
+.card-container .card-image{
+    width: 200px;
+}
+.card-image img{
+    height: 100%;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}

@@ -1,0 +1,31 @@
+
+body {
+    min-height: 100vh;
+    /* max-width: 1500px; */
+    /* background-color: papayawhip;  */
+    margin: 0 auto;
+    box-sizing: border-box;
+   
+}
+.app{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+ul.list-news.gaBoxLinkDisplay{
+    display: none;
+}
+div.width_common.box-tinlienquanv2{
+    display: none;
+}
+figure.item_slide_show.clearfix{
+    display: none;
+}
+p.author_mail strong{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.ck-editor__editable {
+    min-height: 200px;
+}

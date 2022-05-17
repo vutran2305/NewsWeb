@@ -1,0 +1,124 @@
+.header-container{
+    position:fixed;
+    top:0;
+    left: 0;
+    right: 0;
+   
+    z-index: 1;
+    color: #ffffff;
+    height: 60px;
+    font-size: 16px;
+    
+}
+.navbar-container{
+    width: 100%;
+    
+}
+.navbar-wrap
+        {
+            /* margin: 0 60px; */
+            /* background-color:#8736CB; */
+        background-color: #2f80ed;
+        display: flex;
+        justify-content: space-between;
+        
+        }
+.navbar-wrap ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.navbar-wrap p{
+    padding: 0;
+    margin: 0;
+}
+.navbar-wrap  .navbar-menu{
+    width: 100%;
+    display: flex;
+    margin: 0 60px;
+}
+.navbar-menu .menu-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 5px;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+}
+.menu-item:hover{
+    background-color:rgb(83, 202, 131);
+}
+.menu-item:first-child{
+    border: none;
+    padding-left: 10px;
+}
+.menu-item a{
+    color: #ffffff;
+
+    text-decoration: none;
+    display: flex;
+}
+.menu-item a:hover{
+    color: #ffffff;
+}
+.menu-item a p{
+    padding: 0 5px;
+    margin: 0 10px;
+}
+.navbar-wrap .navbar-action{
+    display: flex;
+    margin-right: 40px;
+}
+.navbar-action .authen{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-width: 150px; */
+    min-width: 140px;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+}
+.authen.true{
+    max-width: 120px;
+}
+.navbar-action .authen:nth-child(2){
+    margin-right: 10px;
+    min-width: 150px;
+}
+.authen:hover{
+    background-color: rgb(83, 202, 131);
+}
+.authen svg{
+    margin-left: 10px;
+}
+.authen svg path{
+    fill: #ffffff;
+}
+.authen p{
+    padding: 0 5px;
+    margin: 0 10px;
+    color: #ffffff;
+}
+.navbar-action .search{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 20px;
+}
+.search input{
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 5px 10px 5px 30px;
+}
+.search input:focus{
+    outline: none;
+}
+.search svg{
+    position: absolute;
+    left: 5px;
+}
+.search svg path{
+    fill: #333;
+}

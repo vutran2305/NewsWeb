@@ -1,3 +1,24 @@
 .single{
+    /* display: flex; */
     display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    max-width: 1200px;
+    margin-top: 60px;
+    margin-left: 65px;
+    margin-bottom: 30px;
+}
+.single h2{
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+.single p.description{
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.single p.date{
+    display: flex;
+    margin-bottom: 20px;
+    color: gray;
 }

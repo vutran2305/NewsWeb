@@ -1,18 +1,60 @@
-import { useLocation } from "react-router";
-import Header from "../../components/header/Header";
 import Posts from "../../components/posts/Posts";
-import Sidebar from "../../components/sidebar/Sidebar";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Spinner from "../../components/Spinner";
+import { fetchListRequest } from "../../store/action/NewsAction";
 import "./homepage.css";
-
 export default function Homepage() {
-  const location = useLocation();
-  console.log(location);
+  const dispatch = useDispatch();
+
+  const loading = useSelector((state) => {
+    return state?.listNewsReducer?.loading;
+  });
+
+  const listNews = useSelector((state) => {
+    return state?.listNewsReducer.list;
+  });
+  const listThoiSu = listNews.filter((item) => {
+    return item?.Topic_Id === 1;
+  });
+  const listTheThao = listNews.filter((item) => {
+    return item?.Topic_Id === 2;
+  });
+  const listGiaoDuc = listNews.filter((item) => {
+    return item?.Topic_Id === 3;
+  });
+  const listGiaiTri = listNews.filter((item) => {
+    return item?.Topic_Id === 4;
+  });
+  const listPhapLuat = listNews.filter((item) => {
+    return item?.Topic_Id === 5;
+  });
+  const listYTe = listNews.filter((item) => {
+    return item?.Topic_Id === 7;
+  });
+  useEffect(() => {
+    dispatch(fetchListRequest());
+  }, [dispatch]);
   return (
     <>
-      <Header />
       <div className="home">
-        <Posts />
-        <Sidebar />
+        <div className="home-wrap">
+          <div className="home-content">
+            {loading ? (
+              <Spinner />
+            ) : (
+              <>
+                <Posts topic={""} data={listNews} />
+                <Posts topic={1} data={listThoiSu} />
+                <Posts topic={2} data={listTheThao} />
+                <Posts topic={3} data={listGiaoDuc} />
+                <Posts topic={4} data={listGiaiTri} />
+                <Posts topic={5} data={listPhapLuat} />
+                <Posts topic={7} data={listYTe} />
+              </>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

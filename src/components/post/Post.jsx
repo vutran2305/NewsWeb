@@ -1,41 +1,49 @@
 import { Link } from "react-router-dom";
+import dayjs from "dayjs";
 import "./post.css";
 
-export default function Post({img}) {
+export default function Post({ item }) {
+  var localizedFormat = require("dayjs/plugin/localizedFormat");
+  dayjs.extend(localizedFormat);
+  const {
+    News_Id,
+    News_Tiltle,
+    News_description,
+    Topic_Name,
+    Topic_Id,
+    News_Thumbnail,
+    Created_At,
+  } = item;
+  const { data, type } = News_Thumbnail;
+  const base64String = btoa(String.fromCharCode(...new Uint8Array(data)));
   return (
     <div className="post">
-      <img
-        className="postImg"
-        src={img}
-        alt=""
-      />
+      <div className="img-hover-zoom">
+        <Link to={`/post/${News_Id}`}>
+          {" "}
+          <img
+            src={`data:image/png;base64,${base64String}`}
+            alt={News_Tiltle}
+            width="100%"
+          />
+        </Link>
+      </div>
       <div className="postInfo">
         <div className="postCats">
           <span className="postCat">
-            <Link className="link" to="/posts?cat=Music">
-              Music
-            </Link>
-          </span>
-          <span className="postCat">
-            <Link className="link" to="/posts?cat=Music">
-              Life
+            <Link className="link" to={`/topic/${Topic_Id}`}>
+              {Topic_Name}
             </Link>
           </span>
         </div>
         <span className="postTitle">
-          <Link to="/post/abc" className="link">
-            Lorem ipsum dolor sit amet
+          <Link to={`/post/${News_Id}`} className="link">
+            {News_Tiltle}
           </Link>
         </span>
         <hr />
-        <span className="postDate">1 hour ago</span>
       </div>
-      <p className="postDesc">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        officia architecto deserunt deleniti? Labore ipsum aspernatur magnam
-        fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione
-        atque, exercitationem quibusdam, reiciendis odio laboriosam?
-      </p>
+      <p className="postDesc">{News_description}</p>
     </div>
   );
 }
