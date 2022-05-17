@@ -16,7 +16,7 @@ const Footer = () => {
                   className="main-logo"
                   src={FooterLogo}
                   alt="logo"
-                  width={"400px"}
+                  width={"350px"}
                 />
               </a>
 
