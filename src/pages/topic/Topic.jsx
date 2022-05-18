@@ -26,15 +26,6 @@ const TopicPage = () => {
       dateB = new Date(b.Created_At);
     return dateB - dateA;
   });
-  const listNews = useSelector((state) => {
-    return state?.listNewsReducer.list;
-  });
-  listNews.sort(function (a, b) {
-    var dateA = new Date(a.Created_At),
-      dateB = new Date(b.Created_At);
-    return dateB - dateA;
-  });
-
   const handleCurrentPage = (newPage) => {
     setPage(newPage);
   };
