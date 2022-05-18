@@ -4,7 +4,7 @@
     flex-direction: column;
     /* justify-content: center;
     align-items: center; */
-    max-width: 1200px;
+    max-width: 1400px;
     margin-top: 60px;
     margin-left: 65px;
     margin-bottom: 30px;
@@ -12,6 +12,7 @@
 .single h2{
     margin-bottom: 20px;
     font-size: 35px;
+    text-align: center;
 }
 .single p.description{
     margin-bottom: 20px;

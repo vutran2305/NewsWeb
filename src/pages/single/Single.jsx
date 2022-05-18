@@ -79,7 +79,5 @@ const Single = () => {
     </>
   );
 };
-// const data = `${(
-//   <div dangerouslySetInnerHTML={{ __html: News_Content }} />
-// )}`;
+
 export default Single;
