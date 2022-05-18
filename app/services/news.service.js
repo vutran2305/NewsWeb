@@ -25,12 +25,13 @@ News.get_all = function(result){
 
 }
 News.get_all_by_create = function(id,result){
-    db.query("SELECT * FROM news where Created_At =? ",id,function(err,news){
+    db.query("SELECT * FROM news where Created_At =? ",id,function(err,news,total){
+        total = news.length;
         if(err || news.length == 0){
             result(null);
         }
         else{
-            result(news[0]);
+            result(news ,total);
         }
    });
 
@@ -89,12 +90,13 @@ News.remove = function(News_Id ,result){
     })
 }
 News.getByTopicId = function(id, result){
-    db.query("SELECT * FROM newss where Topic_Id = ?",id,function(err,news){
+    db.query("SELECT * FROM newss where Topic_Id = ?",id,function(err,news,total){
+        total = news.length;
         if(err || news.length == 0){
             result(null);
         }
         else{
-            result(news);
+            result(news,total);
         }
     });
    

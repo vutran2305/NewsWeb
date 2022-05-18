@@ -14,8 +14,13 @@ const PAGE_SIZE =4;
         var page =parseInt(req.query.page )|| 1;
         var star = (page -1)* PAGE_SIZE;
         var end = page * PAGE_SIZE;
-        News.get_all_by_create(req.params.id,function(respnse){
-            res.send({result:respnse.slice(star,end)});
+        News.get_all_by_create(req.params.id,function(respnse,total){
+            if (respnse != null) {
+                res.send({result:respnse.slice(star,end),total});
+            }
+            else {
+                res.send({result:respnse});
+            }
         });
         
     }
@@ -61,7 +66,12 @@ const PAGE_SIZE =4;
         var page =parseInt(req.query.page )|| 1;
         var star = (page -1)* PAGE_SIZE;
         var end = page * PAGE_SIZE;
-        News.getByTopicId(req.params.id, function(respnse){
-            res.send({result:respnse.slice(star,end)});
+        News.getByTopicId(req.params.id, function(respnse,total){
+            if (respnse != null) {
+            res.send({result:respnse.slice(star,end), total});
+            }
+            else {
+                res.send({result:respnse})
+            }
         });
     } 

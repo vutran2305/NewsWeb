@@ -58,7 +58,7 @@ app.post("/login", function (request, response,Username) {
           request.session.loggedin = true;
           request.session.username = username;
           response.send("Đăng nhập thành công tài khoản"+' '+ username);
-          Username('Username:'+username);
+          response.send(Username(username));
           return response;
         } else {
           response.send("Username or Password không đúng !");
