@@ -7,15 +7,38 @@
     height: 150px;
     margin: 35px 0;
     min-width: 1400px;
+    cursor: pointer;
 }
 .card-container:first-child{
     margin-top: 0px;
 }
 .card-container .card-image{
-    width: 200px;
+    max-width: 200px;
 }
 .card-image img{
+    width: 100%;
     height: 100%;
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
+}
+.card-container .card-meta{
+    padding: 20px 10px 20px 20px;
+    font-size: 25px;
+}
+.card-meta .card-title{
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.card-title a:hover{
+    color: #2f80ed;
+}
+.card-meta .card-date{
+    margin-bottom: 10px;
+}
+.card-date>span{
+    font-size: 20px;
+}
+.card-meta .card-description{
+    font-size: 15px;
 }
