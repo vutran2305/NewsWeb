@@ -19,8 +19,7 @@ const Footer = () => {
                   width={"350px"}
                 />
               </a>
-
-              <ul className="footer-social">
+              {/* <ul className="footer-social">
                 {social.map((item, index) => (
                   <li key={index}>
                     <a href={item?.link}>
@@ -33,7 +32,7 @@ const Footer = () => {
                     </a>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
             <div className="footer-home">
               <p className="footer-title">Chủ Đề</p>
@@ -81,14 +80,28 @@ const Footer = () => {
               <div className="about-content">
                 <p>
                   Nơi mang đến những thông tin chính xác, nhanh chóng, giúp
-                  người dùng có được những nguồn thông tin tin cậy và chia sẻ
-                  những kiến thức, kinh nghiệm cá nhân.
+                  người dùng có được những nguồn thông tin tin cậy, tiếp cận
+                  những kiến thức mới mẻ, phong phú, đa dạng.
                 </p>
               </div>
             </div>
-            {/* <div className="footer-subcribe">
-              <p className="footer-title subcribe">Đăng Ký</p>
-            </div> */}
+            <div className="footer-network">
+              <p className="footer-title subcribe">Liên Hệ</p>
+              <ul className="footer-social">
+                {social.map((item, index) => (
+                  <li key={index}>
+                    <a href={item?.link}>
+                      <img
+                        src={item?.logo}
+                        key={index}
+                        width="40px"
+                        alt="logo-social"
+                      />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
         <div className="copyright">CopyRight @2022. Made by Van Tran</div>

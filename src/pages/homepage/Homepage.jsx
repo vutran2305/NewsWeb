@@ -3,10 +3,11 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Spinner from "../../components/Spinner";
 import { fetchListRequest } from "../../store/action/NewsAction";
+import { useLocation } from "react-router-dom";
 import "./homepage.css";
 export default function Homepage() {
   const dispatch = useDispatch();
-
+  const loca = useLocation();
   const loading = useSelector((state) => {
     return state?.listNewsReducer?.loading;
   });
@@ -38,7 +39,10 @@ export default function Homepage() {
   return (
     <>
       <div className="home">
-        <div className="home-wrap">
+        <div
+          className="home-wrap"
+          style={{ paddingBottom: `${loca.pathname === "/" ? "0px" : ""}` }}
+        >
           <div className="home-content">
             {loading ? (
               <Spinner />
