@@ -37,19 +37,17 @@
         padding: 0;
     }
     .footer-home{
-        display: flex;
+    display: flex;
     flex-direction: column;
     margin: 0px 50px;
     padding: 0 30px;
     border-left: 1px dashed;
     margin-right: 20px;
-border-right: 1px dashed;
+    border-right: 1px dashed;
     }
     p.footer-title{
         font-size: 40px;
         margin-bottom: 20px;
-        /* display: flex;
-        align-items: center; */
         text-align: center;
     }
     ul.footer-title{
