@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./navigation.css";
 export default function Topbar({ isLogin, handleLogin }) {
-  console.log("check isLogin:", isLogin);
   const loca = useLocation();
   const [user, setUser] = useState();
   // const [keySearch, setKeySearch] = useState();

@@ -14,6 +14,12 @@ const Single = () => {
   moment().format("LL");
   const { id } = useParams();
   const [speech, setSpeech] = useState();
+  /*
+  tk account 1: tvv2k, pass: tvvDUE44k14@
+   api-key: pf3R8KUQA38QoRuhApBVlBQsZZi6EUqy
+   tk account 2: tvvdue4414, pass: tương tự
+   "api-key": "8ZZ39H0kTOWmF56YMGkTMIHpW7GsbG7j",
+   */
   const url = "https://api.fpt.ai/hmi/tts/v5";
   let config = {
     headers: {
@@ -29,22 +35,13 @@ const Single = () => {
   });
   const { News_Content, News_Tiltle, Created_At, News_description } =
     detailContent;
-
-  /*
-   Get text of each element p with className Normal and concat them 
-    let collection = document.getElementsByClassName("Normal");
   let NewArr = "";
-  Array.from(collection).forEach(function (element) {
-    NewArr += element.innerHTML;
-  });
-  console.log("check NewArr:", NewArr); 
-   */
 
-  const fetchAudio = async (News_Tiltle) => {
+  const fetchAudio = async (NewArr) => {
     const result = await axios
-      .post(`${url}`, News_Tiltle, config)
+      .post(`${url}`, NewArr, config)
       .then((res) => {
-        console.log("check res: ", res);
+        // console.log("check res: ", res);
         return res?.data?.async;
       })
       .catch((err) => {
@@ -57,8 +54,15 @@ const Single = () => {
     dispatch(fetchDetailRequest(id));
   }, [dispatch, id]);
   useEffect(() => {
-    fetchAudio(News_Tiltle);
-  }, [News_Tiltle]);
+    if (News_description) {
+      let collection = document.getElementsByClassName("Normal");
+
+      Array.from(collection).forEach(function (element) {
+        NewArr += element.innerHTML;
+      });
+    }
+    fetchAudio(NewArr);
+  }, [News_description, NewArr]);
   return (
     <>
       <div className="single">
