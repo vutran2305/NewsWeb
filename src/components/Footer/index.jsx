@@ -36,7 +36,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="footer-home">
-              <p className="footer-title">Danh Mục</p>
+              <p className="footer-title">Chủ Đề</p>
               <ul className="footer-title topic">
                 <a href="/topic/1">
                   <li>

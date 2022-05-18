@@ -39,7 +39,7 @@ const TopicPage = () => {
           <div className="home-content">
             <div className="topic-container">
               <h2>
-                Danh Mục:
+                Chủ Đề:
                 <span>
                   {" "}
                   {id === "1"
