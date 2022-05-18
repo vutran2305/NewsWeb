@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -7,15 +8,18 @@ import CardTopic from "../../components/Card";
 import "./Topic.css";
 import Pagination from "../../components/Pagination";
 const TopicPage = () => {
+  let limit = 5;
   const { id } = useParams();
   const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
   const dispatch = useDispatch();
   const loading = useSelector((state) => {
     return state?.listTopicReducer?.loading;
   });
   const listNewsTopic = useSelector((state) => {
     return state?.listTopicReducer?.list;
+  });
+  const total = useSelector((state) => {
+    return state?.listTopicReducer?.total;
   });
   listNewsTopic.sort(function (a, b) {
     var dateA = new Date(a.Created_At),
@@ -36,9 +40,7 @@ const TopicPage = () => {
   };
   useEffect(() => {
     dispatch(fetchListTopicRequest({ id, page }));
-    setTotal(listNewsTopic?.length);
-  }, [dispatch, id, listNewsTopic?.length, page]);
-  console.log("check total:", total);
+  }, [dispatch, id, page]);
   return (
     <>
       <div className="home">
@@ -77,7 +79,7 @@ const TopicPage = () => {
                       onPageChange={(page) => handleCurrentPage(page)}
                       siblingCount
                       currentPage={page}
-                      limit={3}
+                      limit={limit}
                     />
                   </>
                 )}

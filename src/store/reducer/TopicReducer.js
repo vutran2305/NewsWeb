@@ -7,6 +7,7 @@ const initialState = {
   loading: false,
   list: [],
   error: null,
+  total: 0,
 };
 
 export function listTopicReducer(state = initialState, action) {
@@ -21,7 +22,8 @@ export function listTopicReducer(state = initialState, action) {
         ...state,
         loading: false,
         // list: action.payload,
-        list: [...action.payload],
+        list: [...action.payload.data],
+        total: action.payload.total,
       };
     case FETCH_LIST_TOPIC_ERROR:
       return {

@@ -8,12 +8,11 @@ import {
 } from "../action/TopicAction";
 export function* getListNewTopic(action) {
   try {
-    const { result } = yield call(
+    const { result, total } = yield call(
       listNewsTopicApi.getListByTopic,
       action.payload
     );
-
-    yield put(fetchListTopicSuccess(result));
+    yield put(fetchListTopicSuccess(result, total));
   } catch (error) {
     yield put(fetchListTopicError(error));
   }

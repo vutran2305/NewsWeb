@@ -4,14 +4,12 @@ export const FETCH_LIST_TOPIC_ERROR = "FETCH_LIST_TOPIC_ERROR";
 
 export const fetchListTopicRequest = ({ id, page }) => ({
   type: FETCH_LIST_TOPIC_REQUEST,
-  payload: {id,page},
+  payload: { id, page },
 });
-export const fetchListTopicSuccess = (data) => (
-  {
-    type: FETCH_LIST_TOPIC_SUCCESS,
-    payload: data,
-  }
-);
+export const fetchListTopicSuccess = (data, total) => ({
+  type: FETCH_LIST_TOPIC_SUCCESS,
+  payload: { data, total },
+});
 export const fetchListTopicError = (error) => ({
   type: FETCH_LIST_TOPIC_ERROR,
   payload: error,
