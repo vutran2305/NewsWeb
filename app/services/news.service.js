@@ -36,17 +36,17 @@ News.get_all_by_create = function(id,result){
    });
 
 }
-News.get_by_newsTitle = function(title,result){
+News.get_by_newsTitle = function(News_Tiltle,result){
 
-    db.query("Select * From newss where News_Tiltle =?  ",title,function(err,news){
-       
+    db.query('Select * From newss where News_Tiltle LIKE "%' +News_Tiltle + '%"',function(err,news){
+       total = news.length;
         if(err || news.length == 0)
         {
             result("lỗi dữ liệu tìm kiếm");
         }
         else
         {
-            result(news[0])
+            result(news , total)
         }
     });
 }
@@ -90,7 +90,7 @@ News.remove = function(News_Id ,result){
     })
 }
 News.getByTopicId = function(id, result){
-    db.query("SELECT * FROM newss where Topic_Id = ?",id,function(err,news,total){
+    db.query("SELECT * FROM newss where Topic_Id = ? Group By Created_At DESC",id,function(err,news,total){
         total = news.length;
         if(err || news.length == 0){
             result(null);
