@@ -73,7 +73,7 @@ export default function Topbar({ isLogin, handleLogin }) {
                 </li>
                 {user && (
                   <li className="menu-item">
-                    <a href={`/write/`}>
+                    <a href={`/`}>
                       <p>Bài Viết</p>
                     </a>
                   </li>

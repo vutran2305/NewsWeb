@@ -43,7 +43,6 @@ const Single = () => {
     const result = await axios
       .post(`${url}`, NewArr, config)
       .then((res) => {
-        // console.log("check res: ", res);
         return res?.data?.async;
       })
       .catch((err) => {

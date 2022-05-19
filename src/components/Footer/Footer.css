@@ -1,9 +1,7 @@
     .footer-section{
         background-color: #2f80ed;
         width: 100%;
-        min-height: calc(100vh-300px);
-    }
-    .footer-section  {
+        /* height: calc(100vh-300px); */
         color: #ffffff;
     }
     .footer-wrap{

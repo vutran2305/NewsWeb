@@ -13,6 +13,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Write from "./pages/write/List";
+import { List } from "./pages/write/ListWrite";
 
 function App() {
   const [isLogin, setIslogin] = useState(false);
@@ -40,11 +41,12 @@ function App() {
             <Route path="/topic/:id">
               <TopicPage />
             </Route>
-            <Route path="/write/:id">
+            {/* <Route path="/write/:id">
+              <List />
               <Write />
             </Route>
             <Route path="/write/add"></Route>
-            <Route path="/write/edit/:id"></Route>
+            <Route path="/write/edit/:id"></Route> */}
           </Switch>
           <Footer />
         </div>
