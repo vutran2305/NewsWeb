@@ -99,6 +99,8 @@
     padding: 0 5px;
     margin: 0 10px;
     color: #ffffff;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .navbar-action .search{
     position: relative;

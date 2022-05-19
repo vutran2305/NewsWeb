@@ -17,10 +17,12 @@ import "./navigation.css";
 export default function Topbar({ isLogin, handleLogin }) {
   const loca = useLocation();
   const [user, setUser] = useState();
+  const [username, setUserName] = useState();
   // const [keySearch, setKeySearch] = useState();
   useEffect(() => {
     if (localStorage.getItem("status")) {
       setUser(localStorage.getItem("status"));
+      setUserName(localStorage.getItem("username"));
     }
   }, [isLogin]);
 
@@ -69,18 +71,20 @@ export default function Topbar({ isLogin, handleLogin }) {
                     <p>Pháp Luật</p>
                   </a>
                 </li>
-                {user && <li className="menu-item">
-                  <a href="/write">
-                    <p>Bài Viết</p>
-                  </a>
-                  </li>}
+                {user && (
+                  <li className="menu-item">
+                    <a href={`/write/`}>
+                      <p>Bài Viết</p>
+                    </a>
+                  </li>
+                )}
               </ul>
               <div className="navbar-action">
                 {user ? (
                   <div className="authen">
                     <FontAwesomeIcon icon={faCircleUser} />
-                    <Link to="/">
-                      <p>User</p>
+                    <Link to="/" style={{ width: "120px" }}>
+                      <p>{username}</p>
                     </Link>
                   </div>
                 ) : (

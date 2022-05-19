@@ -13,8 +13,10 @@ export default function LoginPage({ handleLogin }) {
   const history = useHistory();
   const formLogin = () => {
     userApi.login(values).then((resp) => {
-      if (resp === "Đăng nhập thành công") {
-        localStorage.setItem("status", resp);
+      if (resp.text === "Đăng nhập thành công") {
+        localStorage.setItem("status", resp.text);
+        localStorage.setItem("id", resp.id);
+        localStorage.setItem("username", resp.username);
         toast.success("Đăng nhập thành công !", {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 1000,
@@ -105,22 +107,3 @@ export default function LoginPage({ handleLogin }) {
     </>
   );
 }
-// const [result, setResult] = useState("");
-// const [details, setDetails] = useState({ email: "", password: "" });
-
-/*
-  const login = (detail) => {
-    userApi.login(detail).then((resp) => {
-      if (resp === "Đăng nhập thành công") {
-        setResult(resp);
-        localStorage.setItem("status", resp);
-        handleLogin();
-        history.push("/");
-      } else return;
-    });
-  };
-   */
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   login(details);
-// };

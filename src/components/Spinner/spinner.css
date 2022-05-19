@@ -7,12 +7,13 @@
 }
 .loader 
 {
-    margin-top: 50px;
+    margin-top: 150px;
+    margin-bottom: 150px;
     border: 10px solid #f3f3f3;
     border-radius: 100%;
-    border-top: 10px solid #8736cb;
-    border-bottom: 10px solid #8736cb;
-    border-right: 10px solid #8736cb;
+    border-top: 10px solid #2f80ed;
+    border-bottom: 10px solid #2f80ed;
+    border-right: 10px solid #2f80ed;
     width: 120px !important;
     height: 120px !important;
     -webkit-animation: spin 1s linear infinite; 

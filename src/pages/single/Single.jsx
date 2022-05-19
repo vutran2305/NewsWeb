@@ -1,3 +1,4 @@
+/* eslint-disable no-const-assign */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-lone-blocks */
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -19,13 +20,15 @@ const Single = () => {
    api-key: pf3R8KUQA38QoRuhApBVlBQsZZi6EUqy
    tk account 2: tvvdue4414, pass: tương tự
    "api-key": "8ZZ39H0kTOWmF56YMGkTMIHpW7GsbG7j",
+   tk account 3: tvvdue, pass: tvvDUE44k14@
+   apikey: "kK5WLZn5nddU3sgz0jjEH2KD2HbCmudY"
    */
   const url = "https://api.fpt.ai/hmi/tts/v5";
   let config = {
     headers: {
-      "api-key": "pf3R8KUQA38QoRuhApBVlBQsZZi6EUqy",
+      "api-key": "kK5WLZn5nddU3sgz0jjEH2KD2HbCmudY",
       speed: "",
-      voice: "thuminh",
+      voice: "linhsan",
     },
   };
 
@@ -36,7 +39,6 @@ const Single = () => {
   const { News_Content, News_Tiltle, Created_At, News_description } =
     detailContent;
   let NewArr = "";
-
   const fetchAudio = async (NewArr) => {
     const result = await axios
       .post(`${url}`, NewArr, config)
@@ -54,15 +56,19 @@ const Single = () => {
     dispatch(fetchDetailRequest(id));
   }, [dispatch, id]);
   useEffect(() => {
-    if (News_description) {
+    if (News_Content) {
       let collection = document.getElementsByClassName("Normal");
 
       Array.from(collection).forEach(function (element) {
         NewArr += element.innerHTML;
       });
     }
+    console.log("Check newArr:", NewArr);
     fetchAudio(NewArr);
-  }, [News_description, NewArr]);
+  }, [News_Content, NewArr]);
+  {
+    console.log("check speech:", speech);
+  }
   return (
     <>
       <div className="single">
