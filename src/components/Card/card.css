@@ -13,7 +13,8 @@
     margin-top: 0px;
 }
 .card-container .card-image{
-    max-width: 200px;
+    /* max-width: 200px; */
+    width: 200px;
 }
 .card-image img{
     width: 100%;
