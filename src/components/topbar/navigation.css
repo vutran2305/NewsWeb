@@ -63,7 +63,11 @@
 }
 .menu-item a p{
     padding: 0 5px;
-    margin: 0 10px;
+    /* margin: 0 10px; */
+    margin: 0 5px;
+}
+li.menu-item a svg{
+    padding-left: 5px;
 }
 .navbar-wrap .navbar-action{
     display: flex;
@@ -115,11 +119,14 @@
     padding: 5px 10px 5px 30px;
 }
 .search input:focus{
-    outline: none;
+    /* outline: none; */
+    /* outline:rgb(83, 202, 131); */
+    outline: 2px solid blue;
 }
 .search svg{
     position: absolute;
     left: 5px;
+    cursor: pointer;
 }
 .search svg path{
     fill: #333;

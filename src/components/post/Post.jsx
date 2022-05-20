@@ -7,7 +7,7 @@ export default function Post({ item }) {
   dayjs.extend(localizedFormat);
   const {
     News_Id,
-    News_Tiltle,
+    News_Title,
     News_description,
     Topic_Name,
     Topic_Id,
@@ -23,7 +23,7 @@ export default function Post({ item }) {
           {" "}
           <img
             src={`data:image/png;base64,${base64String}`}
-            alt={News_Tiltle}
+            alt={News_Title}
             width="100%"
           />
         </Link>
@@ -38,7 +38,7 @@ export default function Post({ item }) {
         </div>
         <span className="postTitle">
           <Link to={`/post/${News_Id}`} className="link">
-            {News_Tiltle}
+            {News_Title}
           </Link>
         </span>
         <hr />

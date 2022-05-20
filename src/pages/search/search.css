@@ -1,0 +1,43 @@
+.home-content.search-content{
+    min-width: 1440px;
+}
+.search-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    min-height: 300px;
+}
+.search-container > h2{
+    margin: 35px 0 20px;
+}
+.search-news{
+    /* min-width: 1400px; */
+    max-width: 600px;
+    position: relative;
+}
+.search-news input{
+    width: 600px;
+    padding: 5px 25px 5px 10px;
+    border-radius: 7px;
+}
+.search-news input:focus{
+    outline: 2px solid blue;
+}
+.search-news svg{
+    position: absolute;
+    right: 3px;
+    top: 5px;
+    cursor: pointer;
+}
+.search-news svg:hover path{
+    fill: #2f80ed;
+}
+.no-content{
+    margin: 50px 0;
+    /* text-align: center; */
+}
+.no-content span{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
