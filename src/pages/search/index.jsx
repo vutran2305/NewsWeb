@@ -1,17 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Spinner from "../../components/Spinner";
 import CardTopic from "../../components/Card";
 import { useLocation } from "react-router-dom";
-// import "./Topic.css";
 import debounce from "lodash.debounce";
-import Pagination from "../../components/Pagination";
+// import Pagination from "../../components/Pagination";
 import axios from "axios";
-import "./search.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
+import "./search.css";
 const SearchPage = () => {
   const loca = useLocation();
   const history = useHistory();
@@ -22,10 +22,41 @@ const SearchPage = () => {
   const handleChange = (event) => {
     const { value } = event.target;
     setKeysearch(value);
+    // debounceFn(value);
   };
   const handleSubmit = () => {
     history.push(`/search/${keysearch}`);
   };
+  // const fetchNews = async (keysearch) => {
+  //   setLoading(true);
+  //   await axios
+  //     .post("http://localhost:4000/news/search", {
+  //       News_Title: keysearch,
+  //     })
+  //     .then((res) => {
+  //       setResult(res?.data?.result);
+  //       setLoading(false);
+  //     });
+  // };
+  // const debounceFn = useCallback(
+  //   debounce((keysearch) => fetchNews(keysearch), 1000),
+  //   []
+  // );
+
+  // useEffect(() => {
+  //   const fetchNews = async (keysearch) => {
+  //     setLoading(true);
+  //     await axios
+  //       .post("http://localhost:4000/news/search", {
+  //         News_Title: keysearch,
+  //       })
+  //       .then((res) => {
+  //         setResult(res?.data?.result);
+  //         setLoading(false);
+  //       });
+  //   };
+  //   fetchNews();
+  // }, [keysearch]);
   useEffect(async () => {
     setLoading(true);
     await axios

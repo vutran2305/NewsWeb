@@ -31,13 +31,6 @@ export default function Topbar({ isLogin, handleLogin }) {
   const [user, setUser] = useState();
   const [username, setUserName] = useState();
   const [keySearch, setKeySearch] = useState();
-  // const debouncedSave = useCallback(
-  //   debounce((value) => handleRouter(value), 1000),
-  //   []
-  // );
-  // const debouncedSave = useRef(
-  //   debounce((nextValue) => handleRouter(nextValue), 1000)
-  // ).current;
   const handleChange = (event) => {
     const { value } = event.target;
     console.log("Check value:", value);
