@@ -1,4 +1,4 @@
-import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FooterLogo from "../../asset/logo/FooterLogo.svg";
 import { social } from "../../constant/social";
@@ -19,20 +19,20 @@ const Footer = () => {
                   width={"350px"}
                 />
               </a>
-              {/* <ul className="footer-social">
-                {social.map((item, index) => (
-                  <li key={index}>
-                    <a href={item?.link}>
-                      <img
-                        src={item?.logo}
-                        key={index}
-                        width="40px"
-                        alt="logo-social"
-                      />
-                    </a>
-                  </li>
-                ))}
-              </ul> */}
+              <ul className="footer-contact">
+                <li className="contact">
+                  <a href="/">
+                    <FontAwesomeIcon icon={faPlus} />
+                    Số điện thoại: <span>0708069650</span>
+                  </a>
+                </li>
+                <li className="contact">
+                  <a href="/">
+                    <FontAwesomeIcon icon={faPlus} />
+                    Gmail: <span>tvvqna@gmail.com</span>
+                  </a>
+                </li>
+              </ul>
             </div>
             <div className="footer-home">
               <p className="footer-title">Chủ Đề</p>
@@ -86,7 +86,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="footer-network">
-              <p className="footer-title subcribe">Liên Hệ</p>
+              <p className="footer-title subcribe">Mạng Xã Hội</p>
               <ul className="footer-social">
                 {social.map((item, index) => (
                   <li key={index}>

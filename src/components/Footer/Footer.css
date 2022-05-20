@@ -22,6 +22,26 @@
         display: flex;
         flex-direction: column;
     }
+    .footer-contact{
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-contact li{
+        margin: 5px 0px;
+    }
+    .footer-contact li:first-child{
+        margin-top: 10px;
+    }
+    .footer-contact li.contact a{
+        font-size: 20px;
+        color: #ffffff;
+    }
+    .footer-contact li.contact a:hover{
+        color: #3e3e3e;
+    }
+    li.contact a svg{
+        margin-right: 5px;
+    }
     .footer-social li{
 
         margin: 5px 0px;

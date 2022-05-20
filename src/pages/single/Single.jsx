@@ -36,7 +36,7 @@ const Single = () => {
   const detailContent = useSelector((state) => {
     return state?.detailNewsReducer?.detail;
   });
-  const { News_Content, News_Tiltle, Created_At, News_description } =
+  const { News_Content, News_Title, Created_At, News_description } =
     detailContent;
   let NewArr = "";
   const fetchAudio = async (NewArr) => {
@@ -71,7 +71,7 @@ const Single = () => {
   return (
     <>
       <div className="single">
-        <h2>{News_Tiltle}</h2>
+        <h2>{News_Title}</h2>
         <audio controls>
           {speech && <source src={speech} type="audio/mpeg" />}
         </audio>
