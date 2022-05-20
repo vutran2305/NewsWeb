@@ -9,10 +9,14 @@
 }
 .search-container > h2{
     margin: 35px 0 20px;
+    display: flex;
+    justify-content: center;
 }
 .search-news{
     /* min-width: 1400px; */
-    max-width: 600px;
+    /* max-width: 600px; */
+    display: flex;
+    justify-content: center;
     position: relative;
 }
 .search-news input{
@@ -25,7 +29,7 @@
 }
 .search-news svg{
     position: absolute;
-    right: 3px;
+    right: 407px;
     top: 5px;
     cursor: pointer;
 }
@@ -34,7 +38,7 @@
 }
 .no-content{
     margin: 50px 0;
-    /* text-align: center; */
+    text-align: center;
 }
 .no-content span{
     text-align: center;
