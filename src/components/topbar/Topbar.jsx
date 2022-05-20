@@ -44,7 +44,6 @@ export default function Topbar({ isLogin, handleLogin }) {
     setKeySearch(value);
   };
   const handleSubmit = () => {
-    // history.push({ pathname: "/search", search: keySearch });
     history.push(`/search/${keySearch}`);
   };
   useEffect(() => {

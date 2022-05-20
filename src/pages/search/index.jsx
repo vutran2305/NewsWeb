@@ -11,36 +11,32 @@ import axios from "axios";
 import "./search.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
 const SearchPage = () => {
   const loca = useLocation();
+  const history = useHistory();
   const value = loca.pathname.slice(8);
-  console.log("check pathname:", loca.pathname);
-  console.log("check includes:", loca.pathname.includes("/search"));
-  // const [page, setPage] = useState(1);
   const [keysearch, setKeysearch] = useState(value);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState([]);
-  // const handleCurrentPage = (newPage) => {
-  //   setPage(newPage);
-  // };
   const handleChange = (event) => {
     const { value } = event.target;
     setKeysearch(value);
   };
-  // const debounceFunc = debounce(function (value) {
-  //   setKeysearch(value);
-  // }, 500);
+  const handleSubmit = () => {
+    history.push(`/search/${keysearch}`);
+  };
   useEffect(async () => {
     setLoading(true);
     await axios
       .post("http://localhost:4000/news/search", {
-        News_Title: value,
+        News_Title: keysearch,
       })
       .then((res) => {
         setResult(res?.data?.result);
         setLoading(false);
       });
-  }, [value]);
+  }, [keysearch]);
   return (
     <>
       <div className="home">
@@ -49,7 +45,7 @@ const SearchPage = () => {
             <div className="search-container">
               <h2>Tìm Kiếm:</h2>
               <div className="list-topic">
-                <div className="search-news" onSubmit>
+                <div className="search-news" onSubmit={handleSubmit}>
                   <input
                     type={"search"}
                     placeholder="Tìm kiếm tin tức ..."
@@ -71,13 +67,6 @@ const SearchPage = () => {
                     {result.map((item, index) => (
                       <CardTopic key={index} item={item} />
                     ))}
-                    {/* <Pagination
-                      totalCount={total}
-                      onPageChange={(page) => handleCurrentPage(page)}
-                      siblingCount
-                      currentPage={page}
-                      limit={limit}
-                    /> */}
                   </>
                 )}
               </div>
