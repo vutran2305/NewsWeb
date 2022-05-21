@@ -3,7 +3,6 @@ import Homepage from "./pages/homepage/Homepage";
 import LoginPage from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Single from "./pages/single/Single";
-// import Write from "./pages/write/Write";
 import TopicPage from "./pages/topic/Topic";
 import Footer from "./components/Footer";
 import { Provider } from "react-redux";
@@ -12,8 +11,6 @@ import { useState } from "react";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Write from "./pages/write/List";
-import { List } from "./pages/write/ListWrite";
 import SearchPage from "./pages/search";
 
 function App() {

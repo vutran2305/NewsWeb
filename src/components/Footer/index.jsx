@@ -1,4 +1,11 @@
-import { faBookmark, faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBookmark,
+  faEnvelope,
+  faLocation,
+  faLocationDot,
+  faPhone,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FooterLogo from "../../asset/logo/FooterLogo.svg";
 import { social } from "../../constant/social";
@@ -16,22 +23,22 @@ const Footer = () => {
                   className="main-logo"
                   src={FooterLogo}
                   alt="logo"
-                  width={"350px"}
+                  width={"250px"}
                 />
               </a>
-              <ul className="footer-contact">
-                <li className="contact">
-                  <a href="/">
-                    <FontAwesomeIcon icon={faPlus} />
-                    Số điện thoại: <span>0708069650</span>
-                  </a>
-                </li>
-                <li className="contact">
-                  <a href="/">
-                    <FontAwesomeIcon icon={faPlus} />
-                    Gmail: <span>tvvqna@gmail.com</span>
-                  </a>
-                </li>
+              <ul className="footer-social">
+                {social.map((item, index) => (
+                  <li key={index}>
+                    <a href={item?.link}>
+                      <img
+                        src={item?.logo}
+                        key={index}
+                        width="40px"
+                        alt="logo-social"
+                      />
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="footer-home">
@@ -86,8 +93,8 @@ const Footer = () => {
               </div>
             </div>
             <div className="footer-network">
-              <p className="footer-title subcribe">Mạng Xã Hội</p>
-              <ul className="footer-social">
+              <p className="footer-title subcribe">Liên Hệ: </p>
+              {/* <ul className="footer-social">
                 {social.map((item, index) => (
                   <li key={index}>
                     <a href={item?.link}>
@@ -100,6 +107,26 @@ const Footer = () => {
                     </a>
                   </li>
                 ))}
+              </ul> */}
+              <ul className="footer-contact">
+                <li className="contact">
+                  <a href="/">
+                    <FontAwesomeIcon icon={faLocationDot} />
+                    <span>71 Ngũ Hành Sơn, Đà Nẵng</span>
+                  </a>
+                </li>
+                <li className="contact">
+                  <a href="/">
+                    <FontAwesomeIcon icon={faPhone} />
+                    <span>0708069650</span>
+                  </a>
+                </li>
+                <li className="contact">
+                  <a href="/">
+                    <FontAwesomeIcon icon={faEnvelope} />
+                    <span>tvvqna@gmail.com</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
