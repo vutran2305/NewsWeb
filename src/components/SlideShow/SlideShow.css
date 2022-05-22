@@ -1,7 +1,7 @@
 .slideshow {
    
     margin: 0 auto; 
-    margin-top: 60px;
+    margin-top: 40px;
     overflow: hidden;
     max-width: 1390px;
     /* max-width: 500px; */
@@ -40,11 +40,12 @@
   }
   
   .slideshowDot.active {
-    background-color: #6a0dad;
+    /* background-color: #6a0dad; */
+    background-color: #2f80ed;
   }
   .slide-description{
       position: absolute;
-      bottom: -40px;
+      bottom: -35px;
       margin: 0 25%;
   }
   .slide-description p {
