@@ -33,7 +33,6 @@ export default function Topbar({ isLogin, handleLogin }) {
   const [keySearch, setKeySearch] = useState();
   const handleChange = (event) => {
     const { value } = event.target;
-    console.log("Check value:", value);
     setKeySearch(value);
   };
   const handleSubmit = () => {

@@ -12,9 +12,9 @@ export default function Post({ item }) {
     Topic_Name,
     Topic_Id,
     News_Thumbnail,
-    Created_At,
+    // Created_At,
   } = item;
-  const { data, type } = News_Thumbnail;
+  const { data } = News_Thumbnail;
   const base64String = btoa(String.fromCharCode(...new Uint8Array(data)));
   return (
     <div className="post">

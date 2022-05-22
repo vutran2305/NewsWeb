@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 import Spinner from "../../components/Spinner";
 import { fetchListTopicRequest } from "../../store/action/TopicAction";
 import CardTopic from "../../components/Card";
-import "./Topic.css";
+
 import Pagination from "../../components/Pagination";
+import "./Topic.css";
 const TopicPage = () => {
   let limit = 5;
   const { id } = useParams();

@@ -1,8 +1,7 @@
 .home {
   display: flex;
   justify-content: center;
-  /* max-width: 1500px; */
-  
+  min-height: 600px;
 }
 .home-wrap{
   padding: 20px 0px;

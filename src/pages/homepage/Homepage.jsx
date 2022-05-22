@@ -1,17 +1,17 @@
 import Posts from "../../components/posts/Posts";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Spinner from "../../components/Spinner";
 import { fetchListRequest } from "../../store/action/NewsAction";
 import { useLocation } from "react-router-dom";
 import "./homepage.css";
+import SlideShow from "../../components/SlideShow";
 export default function Homepage() {
   const dispatch = useDispatch();
   const loca = useLocation();
   const loading = useSelector((state) => {
     return state?.listNewsReducer?.loading;
   });
-
   const listNews = useSelector((state) => {
     return state?.listNewsReducer.list;
   });
@@ -33,6 +33,14 @@ export default function Homepage() {
   const listYTe = listNews.filter((item) => {
     return item?.Topic_Id === 7;
   });
+  // const [newArray, setNewArray] = useState([]);
+  // const map = new Map();
+  // listNews.forEach((item) => {
+  //   map.set(item?.Topic_Id, item);
+  // });
+  // for (let [a, b] of map) {
+  //   newArray.push(b);
+  // }
   useEffect(() => {
     dispatch(fetchListRequest());
   }, [dispatch]);
@@ -48,6 +56,7 @@ export default function Homepage() {
               <Spinner />
             ) : (
               <>
+                <SlideShow />
                 <Posts topic={""} data={listNews} />
                 <Posts topic={1} data={listThoiSu} />
                 <Posts topic={2} data={listTheThao} />
