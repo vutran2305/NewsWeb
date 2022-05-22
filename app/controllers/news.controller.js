@@ -10,6 +10,13 @@ const PAGE_SIZE =4;
         });
         
     }
+    //get list top
+    exports.getListTop = function(req,res){
+        News.get_top(function(data){
+            res.send({result:data});
+        });
+        
+    }
     exports.get_list_news_by_create_at = function(req,res){
         var page =parseInt(req.query.page )|| 1;
         var star = (page -1)* PAGE_SIZE;
@@ -29,7 +36,7 @@ const PAGE_SIZE =4;
         var page =parseInt(req.query.page )|| 1;
         var star = (page -1)* PAGE_SIZE;
         var end = page * PAGE_SIZE;
-        News.get_by_newsTitle(req.body.News_Tiltle,function(respnse,total){
+        News.get_by_newsTitle(req.body.News_Title,function(respnse,total){
             if (respnse != null) {
                 res.send({result:respnse.slice(star,end),total});
             }
