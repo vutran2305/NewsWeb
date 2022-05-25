@@ -21,42 +21,29 @@ const SearchPage = () => {
   const [result, setResult] = useState([]);
   const handleChange = (event) => {
     const { value } = event.target;
-    setKeysearch(value);
-    // debounceFn(value);
+    // setKeysearch(value);
+    debounceFn(value);
   };
   const handleSubmit = () => {
     history.push(`/search/${keysearch}`);
   };
-  // const fetchNews = async (keysearch) => {
-  //   setLoading(true);
-  //   await axios
-  //     .post("http://localhost:4000/news/search", {
-  //       News_Title: keysearch,
-  //     })
-  //     .then((res) => {
-  //       setResult(res?.data?.result);
-  //       setLoading(false);
-  //     });
-  // };
-  // const debounceFn = useCallback(
-  //   debounce((keysearch) => fetchNews(keysearch), 1000),
-  //   []
-  // );
+  const fetchNews = async (keysearch) => {
+    setLoading(true);
+    await axios
+      .post("http://localhost:4000/news/search", {
+        News_Title: setKeysearch(keysearch),
+      })
+      .then((res) => {
+        setResult(res?.data?.result);
+        setLoading(false);
+      });
+    // setKeysearch(keysearch);
+  };
+  const debounceFn = useCallback(
+    debounce((keysearch) => fetchNews(keysearch), 1000),
+    []
+  );
 
-  // useEffect(() => {
-  //   const fetchNews = async (keysearch) => {
-  //     setLoading(true);
-  //     await axios
-  //       .post("http://localhost:4000/news/search", {
-  //         News_Title: keysearch,
-  //       })
-  //       .then((res) => {
-  //         setResult(res?.data?.result);
-  //         setLoading(false);
-  //       });
-  //   };
-  //   fetchNews();
-  // }, [keysearch]);
   useEffect(async () => {
     setLoading(true);
     await axios
@@ -80,7 +67,7 @@ const SearchPage = () => {
                   <input
                     type={"search"}
                     placeholder="Tìm kiếm tin tức ..."
-                    value={keysearch === "undefined" ? "" : keysearch}
+                    // value={keysearch === "undefined" ? "" : keysearch}
                     onChange={handleChange}
                   />
                   <FontAwesomeIcon icon={faSearch} />
