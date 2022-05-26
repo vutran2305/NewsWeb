@@ -58,9 +58,7 @@ app.post("/login", function (request, response, Username) {
           // Authenticate the user
           request.session.loggedin = true;
           request.session.username = username;
-          // response.send("Đăng nhập thành công");
           
-          // vân-trần -fix response: id+ username
           response.send({
             text: "Đăng nhập thành công",
             id: results[0].userId,
