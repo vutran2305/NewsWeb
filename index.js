@@ -59,7 +59,7 @@ app.post("/login", function (request, response, Username) {
           request.session.loggedin = true;
           request.session.username = username;
           // response.send("Đăng nhập thành công");
-
+          
           // vân-trần -fix response: id+ username
           response.send({
             text: "Đăng nhập thành công",
