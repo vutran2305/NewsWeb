@@ -59,14 +59,13 @@ app.post("/login", function (request, response, Username) {
           request.session.loggedin = true;
           request.session.username = username;
           // response.send("Đăng nhập thành công");
-          
+
           // vân-trần -fix response: id+ username
           response.send({
             text: "Đăng nhập thành công",
             id: results[0].userId,
             username: results[0].username,
           });
-          response.send(Username(username));
           return response;
         } else {
           response.send("Username or Password không đúng !");
