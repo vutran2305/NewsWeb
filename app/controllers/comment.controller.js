@@ -9,8 +9,8 @@ const Comment = require('../services/comment.services');
     }
     // get detail
     exports.get_detail = function(req,res){
-        Comment.getById(req.params.id, function(respnse){
-            res.send({result:respnse});
+        Comment.getById(req.params.id, function(respnse, total){
+            res.send({result:respnse , total});
         });
         
     }   

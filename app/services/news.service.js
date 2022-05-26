@@ -3,7 +3,7 @@ const db = require('../common/connect');
 
 var News = function(news){
     this.News_Id = news.News_Id;
-    this.News_Tiltle = news.News_Tiltle;
+    this.News_Title = news.News_Title;
     this.News_Content = news.News_Content;
     this.News_View = news.News_View;
     this.News_Cmt= news.News_Cmt;
@@ -12,9 +12,21 @@ var News = function(news){
     this.Topic_Id = news.Topic_Id;
     this.News_Index = news.News_Index;
     this.Created_At = news.Created_At;
+    this.Cmt_Id = news.Cmt_Id;
 }
 News.get_all = function(result){
     db.query("SELECT * FROM newss inner join topic on newss.Topic_Id =topic.Topic_Id ",function(err,news){
+       if(err){
+           result("Error");
+       }
+       else{
+            result(news);
+       }
+   });
+
+}
+News.get_top = function(result){
+    db.query("SELECT * FROM newss WHERE Topic_Id IN (SELECT Topic_Id from newss Group by Topic_Id ) ORDER by News_Id DESC LIMIT 6 ",function(err,news){
        if(err){
            result("Error");
        }
@@ -36,13 +48,13 @@ News.get_all_by_create = function(id,result){
    });
 
 }
-News.get_by_newsTitle = function(News_Tiltle,result){
+News.get_by_newsTitle = function(News_Title,result){
 
-    db.query('Select * From newss where News_Tiltle LIKE "%' +News_Tiltle + '%"',function(err,news){
+    db.query('Select * From newss where News_Title LIKE "%' +News_Title + '%"',function(err,news){
        total = news.length;
         if(err || news.length == 0)
         {
-            result("lỗi dữ liệu tìm kiếm");
+            result(" liệu tìm kiếm không tìm thấy");
         }
         else
         {
@@ -90,7 +102,7 @@ News.remove = function(News_Id ,result){
     })
 }
 News.getByTopicId = function(id, result){
-    db.query("SELECT * FROM newss where Topic_Id = ? Group By Created_At DESC",id,function(err,news,total){
+    db.query("SELECT * FROM newss where Topic_Id = ? Group By News_Id DESC",id,function(err,news,total){
         total = news.length;
         if(err || news.length == 0){
             result(null);
@@ -103,7 +115,7 @@ News.getByTopicId = function(id, result){
 }
 //put (gioongs create)
 News.update = function(p,result){
-    db.query(" UPDATE news SET News_Tiltle =? ,News_Content =? ,News_View = ?,News_Cmt =?,News_Url =?,News_Img_Upload =?,Topic_Id =?,News_Index=? ,Created_At =? WHERE News_Id=?",[p.News_Tiltle,p.News_Content,p.News_View,p.News_Cmt,p.News_Url,p.News_Img_Upload,p.Topic_Id,p.News_Index,p.Created_At,p.News_Id],function(err,news)
+    db.query(" UPDATE news SET News_Title =? ,News_Content =? ,News_View = ?,News_Cmt =?,News_Url =?,News_Img_Upload =?,Topic_Id =?,News_Index=? ,Created_At =? WHERE News_Id=?",[p.News_Title,p.News_Content,p.News_View,p.News_Cmt,p.News_Url,p.News_Img_Upload,p.Topic_Id,p.News_Index,p.Created_At,p.News_Id],function(err,news)
     {
         if(err ){
             result("Update thất bại");

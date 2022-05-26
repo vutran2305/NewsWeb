@@ -19,13 +19,14 @@ Comment.get_all = function(result){
 }
 
 Comment.getById = function(id, result){
-    db.query("SELECT * FROM comment where Cmt_Id = ?",id,function(err,comment){
+    db.query("SELECT * FROM comment where User_Id = ?",id,function(err,comment,total){
+        total = comment.length;
         if(err || comment.length == 0){
             result(null);
         }
        
         else{
-            result(comment[0]);
+            result(comment , total);
         }
     });
    

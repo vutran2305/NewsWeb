@@ -9,4 +9,5 @@ router.post('/news/add',newController.add_news);
 router.delete('/news/delete/:id',newController.delete_news);
 router.put('/news/update',newController.update_news);
 router.get('/news/listNewByTopic/:id',newController.getListNewByTopic);
+router.get('/news/listTop',newController.getListTop);
 } 
