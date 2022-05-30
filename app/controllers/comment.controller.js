@@ -6,7 +6,7 @@ const PAGE_SIZE =4;
         var page =parseInt(req.query.page )|| 1;
         var star = (page -1)* PAGE_SIZE;
         var end = page * PAGE_SIZE;
-        Comment.get_all(function(data , total){
+        Comment.get_all(req.params.id,function(data , total){
             if (data != null) {
                 res.send({result:data.slice(star,end),total});
             }

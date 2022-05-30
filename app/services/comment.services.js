@@ -6,8 +6,8 @@ var Comment = function(comment){
     this.User_Id = comment.User_Id;
     this.Cmt_Created_at= comment.Cmt_Created_at;
 }
-Comment.get_all = function(result){
-    db.query("SELECT * FROM comment ",function(err,comment,total){
+Comment.get_all = function(id,result){
+    db.query("SELECT * FROM comment Where News_Id =?",id,function(err,comment,total){
         total = comment.length;
        if(err){
            result("Lỗi hiển thị");
