@@ -7,12 +7,13 @@ var Comment = function(comment){
     this.Cmt_Created_at= comment.Cmt_Created_at;
 }
 Comment.get_all = function(result){
-    db.query("SELECT * FROM comment ",function(err,comment){
+    db.query("SELECT * FROM comment ",function(err,comment,total){
+        total = comment.length;
        if(err){
-           result("Error");
+           result("Lỗi hiển thị");
        }
        else{
-    result(comment);
+            result(comment,total);
        }
    });
 

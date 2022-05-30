@@ -1,9 +1,18 @@
 const Comment = require('../services/comment.services');
+const PAGE_SIZE =4;
 
 //get list
     exports.get_list_comment = function(req,res){
-        Comment.get_all(function(data){
-            res.send({result:data});
+        var page =parseInt(req.query.page )|| 1;
+        var star = (page -1)* PAGE_SIZE;
+        var end = page * PAGE_SIZE;
+        Comment.get_all(function(data , total){
+            if (data != null) {
+                res.send({result:data.slice(star,end),total});
+            }
+            else {
+                res.send({result:data});
+            }
         });
         
     }

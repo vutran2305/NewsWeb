@@ -26,7 +26,7 @@ News.get_all = function(result){
 
 }
 News.get_top = function(result){
-    db.query("SELECT * FROM newss WHERE Topic_Id IN (SELECT Topic_Id from newss Group by Topic_Id ) ORDER by News_Id DESC LIMIT 6 ",function(err,news){
+    db.query("SELECT * FROM newss WHERE Topic_Id =1 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =2 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =3 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =4 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =5 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =6 ORDER by News_Id DESC LIMIT 1 ",function(err,news){
        if(err){
            result("Error");
        }
