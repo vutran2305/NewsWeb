@@ -61,15 +61,15 @@ Comment.remove = function(Cmt_Id ,result){
 }
 
 //put (gioongs create)
-Comment.update = function(p,result){
-    db.query(" UPDATE comment SET Cmt_Content =? ,News_Id =? ,User_Id = ?,Cmt_Created_at =? WHERE Cmt_Id=?",[p.Cmt_Content,p.News_Id,p.User_Id,p.Cmt_Created_at,p.Cmt_Id],function(err,comment)
+Comment.update = function(id,p,result){
+    db.query(" UPDATE comment SET Cmt_Content =? WHERE Cmt_Id=?",[p.Cmt_Content,id],function(err,comment)
     {
         if(err ){
             result("Update thất bại");
         }
        
         else{
-            result("update thành công");
+            result("update thành công" );
 }
     })
 }

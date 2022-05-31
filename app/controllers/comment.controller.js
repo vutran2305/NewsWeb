@@ -42,8 +42,9 @@ const PAGE_SIZE =4;
     }
     //put (update gioongs add can data)
     exports.update_comment = function(req,res){
+    var id = req.params.id;
     var data = req.body;   
-    Comment.update(data,function(respnse){
+    Comment.update(id,data,function(respnse){
         res.send({result:respnse});
     });
     }

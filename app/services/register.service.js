@@ -29,4 +29,40 @@ Register.create = function (data, result) {
   });
 };
 
+Register.get_all = function(result){
+  db.query("SELECT * FROM user",function(err,comment,total){
+      total = comment.length;
+     if(err){
+         result("Lỗi hiển thị");
+     }
+     else{
+          result(comment,total);
+     }
+ });
+
+};
+Register.update = function(p,result){
+  db.query(" UPDATE user SET username =? ,password =? ,name = ?,create_at =? WHERE userId=?",[p.username,p.password,p.name,p.create_at,p.userId],function(err)
+  {
+      if(err ){
+          result("Update thất bại");
+      }
+     
+      else{
+          result("update thành công");
+}
+  })
+};
+//delete
+Register.remove = function(userId ,result){
+  db.query("DELETE from user WHERE userId = ?",userId,function(err,register){
+      if(err ){
+          result(null);
+      }
+     
+      else{
+          result("xoá dữ liệu user có id "+ userId + " thành công");
+}
+  })
+};
 module.exports = Register;
