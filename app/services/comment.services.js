@@ -5,6 +5,7 @@ var Comment = function(comment){
     this.News_Id = comment.News_Id;
     this.User_Id = comment.User_Id;
     this.Cmt_Created_at= comment.Cmt_Created_at;
+    this.Update_At= comment.Update_At;
 }
 Comment.get_all = function(id,result){
     db.query("SELECT * FROM comment Where News_Id =?",id,function(err,comment,total){
@@ -62,7 +63,7 @@ Comment.remove = function(Cmt_Id ,result){
 
 //put (gioongs create)
 Comment.update = function(id,p,result){
-    db.query(" UPDATE comment SET Cmt_Content =? WHERE Cmt_Id=?",[p.Cmt_Content,id],function(err,comment)
+    db.query(" UPDATE comment SET Cmt_Content =?,Update_At=CURRENT_DATE WHERE Cmt_Id=?",[p.Cmt_Content,id],function(err,comment)
     {
         if(err ){
             result("Update thất bại");

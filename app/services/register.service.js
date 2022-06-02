@@ -10,6 +10,7 @@ var Register = function (register) {
   this.password = register.password;
   this.name = register.name;
   this.create_at = register.create_at;
+  this.Role = register.Role;
   // this.User_Permision= register.User_Permision;
   // console.log("check: " ,register);
 };
