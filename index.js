@@ -28,7 +28,6 @@ app.use(
 require("./app/routes/news.router")(app);
 require("./app/routes/topic.router")(app);
 require("./app/routes/comment.router")(app);
-require("./app/routes/reply_comment.router")(app);
 require("./app/routes/register.router")(app);
 
 // app.post('/login',function(req,res){
