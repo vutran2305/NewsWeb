@@ -10,6 +10,7 @@ import { fetchListRequest } from "../../store/action/NewsAction";
 import axios from "axios";
 import moment from "moment";
 import "moment/locale/vi";
+import { API_KEY } from "../../constant/apiKey";
 import "./single.css";
 import CardTopTopic from "./TopTopic";
 const Single = () => {
@@ -21,9 +22,9 @@ const Single = () => {
   const url = "https://api.fpt.ai/hmi/tts/v5";
   let config = {
     headers: {
-      "api-key": "pf3R8KUQA38QoRuhApBVlBQsZZi6EUqy",
+      "api-key": `${API_KEY}`,
       speed: "",
-      voice: "banmai",
+      voice: "thuminh",
     },
   };
 
