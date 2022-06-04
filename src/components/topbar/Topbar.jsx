@@ -3,7 +3,6 @@
 import {
   faArrowRightFromBracket,
   faCircleUser,
-  faFootball,
   faGraduationCap,
   faHouseMedical,
   faNewspaper,
@@ -18,13 +17,11 @@ import {
   faSearch,
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { debounce } from "lodash/debounce";
-import "./navigation.css";
 import { useHistory } from "react-router-dom";
-
+import "./navigation.css";
 export default function Topbar({ isLogin, handleLogin }) {
   const loca = useLocation();
   const history = useHistory();
@@ -112,13 +109,6 @@ export default function Topbar({ isLogin, handleLogin }) {
                     <p>Pháp Luật</p>
                   </a>
                 </li>
-                {/* {user && (
-                  <li className="menu-item">
-                    <a href={`/`}>
-                      <p>Bài Viết</p>
-                    </a>
-                  </li>
-                )} */}
               </ul>
               <div className="navbar-action">
                 {user ? (

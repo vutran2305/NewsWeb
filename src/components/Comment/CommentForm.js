@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import "./Comment.css";
 const CommentForm = ({
@@ -9,14 +10,17 @@ const CommentForm = ({
 }) => {
   const [text, setText] = useState(initialText);
   const isTextareaDisabled = text.length === 0;
+
   const onSubmit = (event) => {
     event.preventDefault();
     handleSubmit(text);
     setText("");
   };
+
   return (
     <form onSubmit={onSubmit}>
       <textarea
+        disabled={localStorage.getItem("status") === null}
         className="comment-form-textarea"
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -31,7 +35,7 @@ const CommentForm = ({
           className="comment-form-button comment-form-cancel-button"
           onClick={handleCancel}
         >
-          Cancel
+          Hủy Bỏ
         </button>
       )}
     </form>

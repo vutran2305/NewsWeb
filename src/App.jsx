@@ -39,7 +39,7 @@ function App() {
             <Route path="/topic/:id">
               <TopicPage />
             </Route>
-            <Route path="/search/:id">
+            <Route exact path="/search/:id">
               <SearchPage />
             </Route>
           </Switch>

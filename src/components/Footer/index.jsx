@@ -1,19 +1,28 @@
 import {
   faBookmark,
   faEnvelope,
-  faLocation,
   faLocationDot,
   faPhone,
-  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FooterLogo from "../../asset/logo/FooterLogo.svg";
 import { social } from "../../constant/social";
+import { useLocation } from "react-router-dom";
 import "./Footer.css";
 const Footer = () => {
+  const loca = useLocation();
   return (
     <>
-      <footer className="footer-section">
+      <footer
+        className="footer-section"
+        style={{
+          display: `${
+            loca.pathname === "/login" || loca.pathname === "/register"
+              ? "none"
+              : "block"
+          }`,
+        }}
+      >
         <div className="footer-container">
           <div className="footer-wrap">
             <div className="footer-logo">

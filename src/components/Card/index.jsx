@@ -1,10 +1,8 @@
-import "./card.css";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import "./card.css";
 const CardTopic = ({ item }) => {
-  const loca = useLocation();
   const history = useHistory();
   const { News_Id, News_Title, News_description, News_Thumbnail, Created_At } =
     item;
@@ -12,11 +10,11 @@ const CardTopic = ({ item }) => {
   const base64String = btoa(String.fromCharCode(...new Uint8Array(data)));
   moment.locale("vi");
   moment().format("LL");
+
   return (
     <>
       <div
         className="card-container"
-        // style={{ maxWidth: `${loca.pathname === "/" ? "400px" : ""}  ` }}
         onClick={() => history.push(`/post/${News_Id}`)}
       >
         <div className="card-image">
@@ -36,10 +34,7 @@ const CardTopic = ({ item }) => {
           <div className="card-date">
             <span>{`${moment(`${Created_At}`).format("LL")}`}</span>
           </div>
-          <div
-            className="card-description"
-            // style={{ display: `${loca.pathname === "/" ? "none" : ""}  ` }}
-          >
+          <div className="card-description">
             <span>{News_description}</span>
           </div>
         </div>

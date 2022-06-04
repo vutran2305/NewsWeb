@@ -8,8 +8,7 @@ import {
 } from "../action/NewsAction";
 export function* getListNews(action) {
   try {
-    const {result} = yield call(listNewsTopicApi.getList, action.payload);
- 
+    const { result } = yield call(listNewsTopicApi.getList, action.payload);
     yield put(fetchListSuccess(result));
   } catch (error) {
     yield put(fetchListError(error));

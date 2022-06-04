@@ -1,9 +1,5 @@
 .single{
-    /* display: flex; */
     display: flex;
-    flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
     max-width: 1400px;
     margin-top: 60px;
     margin-left: 65px;
@@ -11,8 +7,7 @@
 }
 .single h2{
     margin-bottom: 20px;
-    font-size: 35px;
-    text-align: center;
+    font-size: 28px;
 }
 .single p.description{
     margin-bottom: 20px;

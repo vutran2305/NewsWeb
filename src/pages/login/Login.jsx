@@ -1,5 +1,3 @@
-/* eslint-disable no-useless-escape */
-/* eslint-disable no-unused-vars */
 import { toast, ToastContainer } from "react-toastify";
 import useForm from "../../hook/useForm";
 import { useHistory, Link } from "react-router-dom";
@@ -15,7 +13,7 @@ export default function LoginPage({ handleLogin }) {
     userApi.login(values).then((resp) => {
       if (resp.text === "Đăng nhập thành công") {
         localStorage.setItem("status", resp.text);
-        localStorage.setItem("id", resp.id);
+        localStorage.setItem("userId", resp.userId);
         localStorage.setItem("username", resp.username);
         toast.success("Đăng nhập thành công !", {
           position: toast.POSITION.TOP_RIGHT,

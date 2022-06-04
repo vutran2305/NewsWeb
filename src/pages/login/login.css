@@ -1,5 +1,4 @@
 .login {
-  /* height: calc(100vh - 50px); */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,7 +8,6 @@
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    /* url("https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"); */
     url("https://images.pexels.com/photos/317355/pexels-photo-317355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;
 }
@@ -35,8 +33,6 @@
   
   padding: 10px 30px 10px 10px;
   min-width: 230px;
-  /* padding: 10px; */
-  
   background-color: white;
   border: none;
   border-radius: 10px;
@@ -79,8 +75,6 @@ i.icon-password{
 }
 
 button.btn-register{
-  
-    /* margin-top: 20px; */
     cursor: pointer;
     background-color: teal;
     color: white;

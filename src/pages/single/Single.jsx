@@ -1,24 +1,23 @@
-/* eslint-disable no-const-assign */
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-lone-blocks */
 /* eslint-disable react-hooks/exhaustive-deps */
+
 import Comments from "../../components/Comment/Comments";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchDetailRequest } from "../../store/action/DetailAction";
 import { fetchListRequest } from "../../store/action/NewsAction";
-import CardTopic from "../../components/Card";
 import axios from "axios";
 import moment from "moment";
 import "moment/locale/vi";
 import "./single.css";
-import { result } from "lodash";
+import CardTopTopic from "./TopTopic";
 const Single = () => {
   moment.locale("vi");
   moment().format("LL");
   const { id } = useParams();
   const [speech, setSpeech] = useState();
+
   const url = "https://api.fpt.ai/hmi/tts/v5";
   let config = {
     headers: {
@@ -29,45 +28,50 @@ const Single = () => {
   };
 
   const dispatch = useDispatch();
+  const listNews = useSelector((state) => {
+    return state?.listNewsReducer.list;
+  });
   const detailContent = useSelector((state) => {
     return state?.detailNewsReducer?.detail;
   });
   const { News_Content, News_Title, Created_At, News_description } =
     detailContent;
   let NewArr = "";
-  const fetchAudio = async (NewArr) => {
-    const result = await axios
+  const fetchAudio = (NewArr) => {
+    axios
       .post(`${url}`, NewArr, config)
       .then((res) => {
-        return res?.data?.async;
+        setSpeech(res?.data?.async);
       })
       .catch((err) => {
         console.log("AXIOS ERROR: ", err);
       });
-    setSpeech(result);
   };
+  const newArray = [];
+  const map = new Map();
+  listNews.forEach((item) => {
+    map.set(item?.Topic_Id, item);
+  });
+  for (let [a, b] of map) {
+    newArray.push(b);
+  }
 
   useEffect(() => {
+    dispatch(fetchListRequest());
     dispatch(fetchDetailRequest(id));
-  }, [dispatch, id]);
-  useEffect(() => {
-    // let NewArr = "";
-    console.log("check content:", News_Content);
     if (News_Content) {
       let collection = document.getElementsByClassName("Normal");
-
       Array.from(collection).forEach(function (element) {
         NewArr += element.innerHTML;
       });
     }
-    console.log("Check newArr:", NewArr);
-    fetchAudio(NewArr);
-  }, [News_Content, NewArr, speech]);
 
+    fetchAudio(NewArr);
+  }, [dispatch, id, News_Content, NewArr, speech, id]);
   return (
     <>
       <div className="single">
-        <div className="single-content">
+        <div className="single-content" style={{ maxWidth: "970px" }}>
           <h2>{News_Title}</h2>
           <audio controls>
             {speech && <source src={speech} type="audio/mpeg" />}
@@ -77,6 +81,16 @@ const Single = () => {
           ).format("LL")}`}</p>
           <p className="description">{News_description}</p>
           <div dangerouslySetInnerHTML={{ __html: News_Content }} />
+          <Comments id={id} />
+        </div>
+        <div
+          className="top-post"
+          style={{ maxWidth: "400px", marginLeft: "30px" }}
+        >
+          <h2>bài viết mới nhất các chuyên mục</h2>
+          {newArray.map((item, index) => (
+            <CardTopTopic key={index} item={item} />
+          ))}
         </div>
       </div>
     </>
