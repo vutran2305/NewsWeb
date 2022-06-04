@@ -24,7 +24,7 @@ const Single = () => {
     headers: {
       "api-key": `${API_KEY}`,
       speed: "",
-      voice: "thuminh",
+      voice: "banmai",
     },
   };
 
