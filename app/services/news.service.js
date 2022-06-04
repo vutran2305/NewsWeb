@@ -15,7 +15,7 @@ var News = function(news){
     this.Cmt_Id = news.Cmt_Id;
 }
 News.get_all = function(result){
-    db.query("SELECT * FROM newss inner join topic on newss.Topic_Id =topic.Topic_Id ",function(err,news){
+    db.query("SELECT * FROM news inner join topic on news.Topic_Id =topic.Topic_Id ",function(err,news){
        if(err){
            result("Error");
        }
@@ -26,7 +26,7 @@ News.get_all = function(result){
 
 }
 News.get_top = function(result){
-    db.query("SELECT * FROM newss WHERE Topic_Id =1 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =2 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =3 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =4 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =5 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =6 ORDER by News_Id DESC LIMIT 1 ",function(err,news){
+    db.query("SELECT * FROM news WHERE Topic_Id =1 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =2 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =3 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =4 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =5 ORDER by News_Id DESC LIMIT 1;SELECT * FROM newss WHERE Topic_Id =6 ORDER by News_Id DESC LIMIT 1 ",function(err,news){
        if(err){
            result("Error");
        }
@@ -50,11 +50,11 @@ News.get_all_by_create = function(id,result){
 }
 News.get_by_newsTitle = function(News_Title,result){
 
-    db.query('Select * From newss where News_Title LIKE "%' +News_Title + '%"',function(err,news){
+    db.query('Select * From news where News_Title LIKE "%' +News_Title + '%"',function(err,news){
        total = news.length;
         if(err || news.length == 0)
         {
-            result(" liệu tìm kiếm không tìm thấy");
+            result("dữ liệu tìm kiếm không tìm thấy");
         }
         else
         {
@@ -102,7 +102,7 @@ News.remove = function(News_Id ,result){
     })
 }
 News.getByTopicId = function(id, result){
-    db.query("SELECT * FROM newss where Topic_Id = ? Group By News_Id DESC",id,function(err,news,total){
+    db.query("SELECT * FROM news where Topic_Id = ? Group By News_Id DESC",id,function(err,news,total){
         total = news.length;
         if(err || news.length == 0){
             result(null);

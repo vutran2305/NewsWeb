@@ -61,7 +61,7 @@ app.post("/login", function (request, response, Username) {
 
           response.send({
             text: "Đăng nhập thành công",
-            id: results[0].userId,
+            userId: results[0].userId,
             username: results[0].username,
           });
           return response;

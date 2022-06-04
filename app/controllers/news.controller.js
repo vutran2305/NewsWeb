@@ -1,5 +1,5 @@
 const News = require('../services/news.service');
-const PAGE_SIZE =4;
+const PAGE_SIZE =5;
 //get list
     exports.get_list_news = function(req,res){
         // var page =parseInt(req.query.page )|| 1;
