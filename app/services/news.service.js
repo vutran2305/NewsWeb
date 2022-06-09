@@ -15,7 +15,7 @@ var News = function(news){
     this.Cmt_Id = news.Cmt_Id;
 }
 News.get_all = function(result){
-    db.query("SELECT * FROM news inner join topic on news.Topic_Id =topic.Topic_Id ",function(err,news){
+    db.query("SELECT * FROM news inner join topic on news.Topic_Id =topic.Topic_Id ORDER by News_Id DESC ",function(err,news){
        if(err){
            result("Error");
        }
