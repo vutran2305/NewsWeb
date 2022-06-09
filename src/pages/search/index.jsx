@@ -72,7 +72,7 @@ const SearchPage = () => {
                 </div>
                 {loading ? (
                   <Spinner />
-                ) : result === "dữ l" ? (
+                ) : result === "nodat" ? (
                   <div className="no-content">
                     <span>
                       Không tìm thấy bài viết dựa trên kết quả tìm kiếm!

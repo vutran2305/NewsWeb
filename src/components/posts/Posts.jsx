@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import Post from "../post/Post";
 import "./posts.css";
 export default function Posts({ topic, data }) {
-  console.log("check data pass:", data);
+  // data.sort(function (a, b) {
+  //   var dateA = new Date(a.Created_At),
+  //     dateB = new Date(b.Created_At);
+  //   return dateB - dateA;
+  // });
   data.sort(function (a, b) {
-    var dateA = new Date(a.Created_At),
-      dateB = new Date(b.Created_At);
-    return dateB - dateA;
+    var idA = a.News_Id;
+    var idB = b.News_Id;
+    return idB - idA;
   });
   const firstItem = data.slice(0, 1);
   const slicedArray = data.slice(1, 5);
