@@ -140,7 +140,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="copyright">CopyRight @2022. Made by Van Tran</div>
+        <div className="copyright">CopyRight @2022. Made by V&V</div>
       </footer>
     </>
   );
