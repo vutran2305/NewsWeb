@@ -24,7 +24,7 @@ const Single = () => {
     headers: {
       "api-key": `${API_KEY}`,
       speed: "",
-      voice: "banmai",
+      voice: "linhsan",
     },
   };
 
@@ -68,12 +68,19 @@ const Single = () => {
     }
 
     fetchAudio(NewArr);
+    // console.log("chek newArray length:", NewArr.length);
   }, [dispatch, id, News_Content, NewArr, speech, id]);
+
   return (
     <>
       <div className="single">
         <div className="single-content" style={{ maxWidth: "970px" }}>
           <h2>{News_Title}</h2>
+          {/* {NewArr.length < 5000 && (
+            <audio controls>
+              {speech && <source src={speech} type="audio/mpeg" />}
+            </audio>
+          )} */}
           <audio controls>
             {speech && <source src={speech} type="audio/mpeg" />}
           </audio>
