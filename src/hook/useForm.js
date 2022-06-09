@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { toast } from "react-toastify";
 import { omit } from "lodash";
 
 const useForm = (callback) => {
@@ -91,12 +90,17 @@ const useForm = (callback) => {
     if (event) event.preventDefault();
     if (Object.keys(errors).length === 0 && Object.keys(errors).length === 0) {
       callback();
-    } else {
-      toast.warning("Mời bạn nhập dữ liệu !", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 1500,
-      });
+      // toast.warning("Mời bạn nhập dữ liệu !", {
+      //   position: toast.POSITION.TOP_RIGHT,
+      //   autoClose: 1500,
+      // });
     }
+    //  else {
+    //   toast.warning("Mời bạn nhập dữ liệu !", {
+    //     position: toast.POSITION.TOP_RIGHT,
+    //     autoClose: 1500,
+    //   });
+    // }
   };
 
   return {

@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "./register.css";
 
+
 export default function Register() {
   const history = useHistory();
   const formRegister = () => {
@@ -16,7 +17,14 @@ export default function Register() {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 1000,
         });
-      } else {
+      } 
+      else if(resp?.result === "Vui lòng nhập dữ liệu"){
+        toast.warning("Mời bạn nhập dữ liệu !", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 1500,
+        });
+      }
+      else {
         toast.success("Đăng ký tài khoản thành công !", {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 1000,

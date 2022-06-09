@@ -100,7 +100,7 @@ const Single = () => {
           className="top-post"
           style={{ maxWidth: "400px", marginLeft: "30px" }}
         >
-          <h2>bài viết mới nhất các chuyên mục</h2>
+          <h2>Bài viết mới nhất các chuyên mục</h2>
           {newArray.map((item, index) => (
             <CardTopTopic key={index} item={item} />
           ))}
