@@ -18,7 +18,6 @@ const Single = () => {
   moment().format("LL");
   const { id } = useParams();
   const [speech, setSpeech] = useState();
-
   const url = "https://api.fpt.ai/hmi/tts/v5";
   let config = {
     headers: {
@@ -60,6 +59,17 @@ const Single = () => {
   useEffect(() => {
     dispatch(fetchListRequest());
     dispatch(fetchDetailRequest(id));
+    // if (News_Content) {
+    //   let collection = document.getElementsByClassName("Normal");
+    //   Array.from(collection).forEach(function (element) {
+    //     NewArr += element.innerHTML;
+    //   });
+    // }
+
+    // fetchAudio(NewArr);
+    // }, [dispatch, id, News_Content, NewArr, speech, id]);
+  }, [dispatch, id]);
+  useEffect(() => {
     if (News_Content) {
       let collection = document.getElementsByClassName("Normal");
       Array.from(collection).forEach(function (element) {
@@ -68,21 +78,16 @@ const Single = () => {
     }
 
     fetchAudio(NewArr);
-    // console.log("chek newArray length:", NewArr.length);
-  }, [dispatch, id, News_Content, NewArr, speech, id]);
+  }, [News_Content]);
 
   return (
     <>
       <div className="single">
         <div className="single-content" style={{ maxWidth: "970px" }}>
           <h2>{News_Title}</h2>
-          {/* {NewArr.length < 5000 && (
-            <audio controls>
-              {speech && <source src={speech} type="audio/mpeg" />}
-            </audio>
-          )} */}
           <audio controls>
             {speech && <source src={speech} type="audio/mpeg" />}
+            {/* <source src={speech} type="audio/mpeg" /> */}
           </audio>
           <p className="date" style={{ marginTop: "25px" }}>{`${moment(
             `${Created_At}`
