@@ -12,6 +12,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import SearchPage from "./pages/search";
+import NotFound from "./pages/notFound/NotFound";
 
 function App() {
   const [isLogin, setIslogin] = useState(false);
@@ -42,6 +43,7 @@ function App() {
             <Route exact path="/search/:id">
               <SearchPage />
             </Route>
+            <Route path="*" component={NotFound} />
           </Switch>
           <Footer />
         </div>

@@ -7,6 +7,7 @@ const CardTopTopic = ({ item }) => {
   const history = useHistory();
   const { News_Id, News_Title, News_Thumbnail, Created_At, Topic_Id } = item;
   const { data } = News_Thumbnail;
+  console.log("check data topic:", data);
   const base64String = btoa(String.fromCharCode(...new Uint8Array(data)));
   moment.locale("vi");
   moment().format("LL");
