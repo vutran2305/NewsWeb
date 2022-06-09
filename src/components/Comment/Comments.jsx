@@ -40,9 +40,9 @@ const Comments = ({ id }) => {
         autoClose: 1000,
       });
     }
-   
+
     setListComments(listComments.concat(result?.data?.result));
-     //another way to add item:  setListComments([...listComments, result?.data?.result]);
+    //another way to add item:  setListComments([...listComments, result?.data?.result]);
     setTotal(total + 1);
     setActiveComment(null);
   };
@@ -111,9 +111,13 @@ const Comments = ({ id }) => {
         <p className="comments-title">
           Bình Luận (<span>{total}</span>)
         </p>
-        <div className="comment-form-title">
-          Gửi tới nhận xét, đóng góp về bài viết
-        </div>
+        {username ? (
+          ""
+        ) : (
+          <div className="comment-form-title">
+            Đăng nhập để gửi tới nhận xét về bài viết
+          </div>
+        )}
         <CommentForm submitLabel="Gửi" handleSubmit={addComment} />
         <div className="comments-container">
           {listComments.length > 0 ? (
