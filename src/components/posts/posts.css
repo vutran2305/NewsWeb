@@ -15,7 +15,7 @@
     flex-direction: column;
     /* border-bottom: 1px solid #ea0000; */
     border-bottom: 1px solid gray;
-    max-width: 1500px;
+    max-width: 1376px;
 }
 /* .list-container:last-child{
     border-bottom: 0;
@@ -36,7 +36,7 @@ a span.read-more{
     color: #2f80ed;
     display: flex;
     justify-content: flex-end;
-    margin: 0px 20px 20px 0;
+    margin: 0px 0px 20px 0;
 }
 a:hover span.read-more{
     color: gray;
