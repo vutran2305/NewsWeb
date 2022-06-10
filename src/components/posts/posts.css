@@ -17,9 +17,9 @@
     border-bottom: 1px solid gray;
     max-width: 1376px;
 }
-/* .list-container:last-child{
+.list-container:last-child{
     border-bottom: 0;
-} */
+}
 .list-row{
     display: flex;
     flex-direction: row;
